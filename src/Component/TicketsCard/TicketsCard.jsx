@@ -32,7 +32,9 @@ const TicketsCard = ({ fetchTicket, handleTicket, card }) => {
             )}
 
             {card.length > 0 &&
-              card.map((ticket) => <TaskStatus key={ticket.id} ticket = {ticket}></TaskStatus>)}
+              card.map((ticket) => (
+                <TaskStatus key={ticket.id} ticket={ticket}></TaskStatus>
+              ))}
           </div>
         </div>
         {/* Resolve task */}

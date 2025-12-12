@@ -1,7 +1,7 @@
 import React from "react";
 import vector1 from "../assets/vector1.png";
 
-const Hero = ({cardTotal}) => {
+const Hero = ({ cardTotal }) => {
   return (
     <div className="md:w-11/12 mx-auto font mt-10 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="">

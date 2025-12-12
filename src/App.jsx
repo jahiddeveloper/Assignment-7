@@ -20,10 +20,14 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <Hero cardTotal = {card.length}></Hero>
+      <Hero cardTotal={card.length}></Hero>
 
       <Suspense fallback={<h3>Just a sec</h3>}>
-        <TicketsCard fetchTicket={fetchTicket} handleTicket={handleTicket} card={card}></TicketsCard>
+        <TicketsCard
+          fetchTicket={fetchTicket}
+          handleTicket={handleTicket}
+          card={card}
+        ></TicketsCard>
       </Suspense>
 
       <Footer></Footer>

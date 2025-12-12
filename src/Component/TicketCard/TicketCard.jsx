@@ -4,10 +4,12 @@ import ellips2 from "../../assets/Ellipse-2.png";
 import calender from "../../assets/calender.png";
 
 const TicketCard = ({ ticket, handleTicket }) => {
-
   return (
     <div>
-      <div onClick={() => handleTicket(ticket)} className="bg-white shadow-sm rounded-lg p-4 cursor-pointer hover:shadow-2xl hover:transition duration-350 hover:scale-101">
+      <div
+        onClick={() => handleTicket(ticket)}
+        className="bg-white shadow-sm rounded-lg p-4 cursor-pointer hover:shadow-2xl hover:transition duration-350 hover:scale-101"
+      >
         <div className="flex justify-between items-center">
           <h2 className="font-bold text-xl">{ticket.title}</h2>
           <p
