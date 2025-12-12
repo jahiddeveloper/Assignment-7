@@ -11,11 +11,11 @@ function App() {
   let [card, setCard] = useState([]);
 
   let handleTicket = (ticket) => {
-    console.log(ticket);
+    // console.log(ticket);
     let newCard = [...card, ticket];
     setCard(newCard);
   };
-  console.log(card);
+  // console.log(card);
 
   return (
     <>
@@ -23,7 +23,7 @@ function App() {
       <Hero cardTotal = {card.length}></Hero>
 
       <Suspense fallback={<h3>Just a sec</h3>}>
-        <TicketsCard fetchTicket={fetchTicket} handleTicket={handleTicket}></TicketsCard>
+        <TicketsCard fetchTicket={fetchTicket} handleTicket={handleTicket} card={card}></TicketsCard>
       </Suspense>
 
       <Footer></Footer>
