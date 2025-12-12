@@ -13,7 +13,13 @@ function App() {
 
   let handleTicket = (ticket) => {
     // console.log(ticket);
+    let isExist = card.find(item => item.id == ticket.id)
+
+    if(isExist) {
+      return;
+    }
     toast.success("Hello wrold")
+
     let newCard = [...card, ticket];
     setCard(newCard);
   };
