@@ -30,7 +30,7 @@ const TicketCard = ({ ticket, handleTicket }) => {
         <p className="mt-3 text-[#627382] md:w-125">{ticket.description}</p>
         <div className="flex justify-between items-center mt-4">
           <div className="flex items-center gap-2 md:gap-4">
-            <p className="text-[#627382] font-semibold">{ticket.id}</p>
+            <p className="text-[#627382] font-semibold">#{ticket.id}</p>
             <p
               className={`${
                 ticket.priority == "HIGH PRIORITY"

@@ -4,6 +4,7 @@ import Footer from "./Component/Footer";
 import Hero from "./Component/Hero";
 import Navbar from "./Component/Navbar";
 import TicketsCard from "./Component/TicketsCard/TicketsCard";
+import { ToastContainer, toast } from 'react-toastify';
 
 let fetchTicket = fetch("/Tickets.json").then((res) => res.json());
 
@@ -12,6 +13,7 @@ function App() {
 
   let handleTicket = (ticket) => {
     // console.log(ticket);
+    toast.success("Hello wrold")
     let newCard = [...card, ticket];
     setCard(newCard);
   };
@@ -31,6 +33,8 @@ function App() {
       </Suspense>
 
       <Footer></Footer>
+
+      <ToastContainer />
     </>
   );
 }
