@@ -3,7 +3,13 @@ import TicketCard from "../TicketCard/TicketCard";
 import TaskStatus from "../TaskStatus/TaskStatus";
 import ResolveTask from "../ResolveTask/ResolveTask";
 
-const TicketsCard = ({ fetchTicket, handleTicket, card, handleCompleat, compleat }) => {
+const TicketsCard = ({
+  fetchTicket,
+  handleTicket,
+  card,
+  handleCompleat,
+  compleat,
+}) => {
   let ticket = use(fetchTicket);
 
   return (
@@ -34,7 +40,11 @@ const TicketsCard = ({ fetchTicket, handleTicket, card, handleCompleat, compleat
 
             {card.length > 0 &&
               card.map((ticket) => (
-                <TaskStatus key={ticket.id} ticket={ticket} handleCompleat={handleCompleat}></TaskStatus>
+                <TaskStatus
+                  key={ticket.id}
+                  ticket={ticket}
+                  handleCompleat={handleCompleat}
+                ></TaskStatus>
               ))}
           </div>
         </div>
@@ -48,8 +58,9 @@ const TicketsCard = ({ fetchTicket, handleTicket, card, handleCompleat, compleat
               </p>
             )}
             {compleat.length > 0 &&
-              compleat.map(ticket => <ResolveTask key={ticket.id} ticket = {ticket}></ResolveTask>)
-            }
+              compleat.map((ticket) => (
+                <ResolveTask key={ticket.id} ticket={ticket}></ResolveTask>
+              ))}
           </div>
         </div>
       </div>

@@ -24,13 +24,19 @@ function App() {
     setCard(newCard);
   };
 
-  let [compleat, setCompleat] = useState([])
+  let [compleat, setCompleat] = useState([]);
 
   let handleCompleat = (ticket) => {
     // console.log(Ticket)
-    let newCompleat = [...compleat, ticket]
-    setCompleat(newCompleat)
-  }
+    let Exist = compleat.find((item) => item.id == ticket.id);
+
+    if (Exist) {
+      return;
+    }
+
+    let newCompleat = [...compleat, ticket];
+    setCompleat(newCompleat);
+  };
   // console.log(compleat)
 
   return (
@@ -43,7 +49,7 @@ function App() {
           fetchTicket={fetchTicket}
           handleTicket={handleTicket}
           card={card}
-          handleCompleat = {handleCompleat}
+          handleCompleat={handleCompleat}
           compleat={compleat}
         ></TicketsCard>
       </Suspense>
