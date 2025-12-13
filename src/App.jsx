@@ -4,7 +4,7 @@ import Footer from "./Component/Footer";
 import Hero from "./Component/Hero";
 import Navbar from "./Component/Navbar";
 import TicketsCard from "./Component/TicketsCard/TicketsCard";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 let fetchTicket = fetch("/Tickets.json").then((res) => res.json());
 
@@ -13,28 +13,38 @@ function App() {
 
   let handleTicket = (ticket) => {
     // console.log(ticket);
-    let isExist = card.find(item => item.id == ticket.id)
+    let isExist = card.find((item) => item.id == ticket.id);
 
-    if(isExist) {
+    if (isExist) {
       return;
     }
-    toast.success("Hello wrold")
+    toast.success("Hello wrold");
 
     let newCard = [...card, ticket];
     setCard(newCard);
   };
-  // console.log(card);
+
+  let [compleat, setCompleat] = useState([])
+
+  let handleCompleat = (ticket) => {
+    // console.log(Ticket)
+    let newCompleat = [...compleat, ticket]
+    setCompleat(newCompleat)
+  }
+  // console.log(compleat)
 
   return (
     <>
       <Navbar></Navbar>
-      <Hero cardTotal={card.length}></Hero>
+      <Hero cardTotal={card.length} compleatTotal={compleat.length}></Hero>
 
       <Suspense fallback={<h3>Just a sec</h3>}>
         <TicketsCard
           fetchTicket={fetchTicket}
           handleTicket={handleTicket}
           card={card}
+          handleCompleat = {handleCompleat}
+          compleat={compleat}
         ></TicketsCard>
       </Suspense>
 

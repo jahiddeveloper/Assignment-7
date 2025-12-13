@@ -1,7 +1,7 @@
 import React from "react";
 import vector1 from "../assets/vector1.png";
 
-const Hero = ({ cardTotal }) => {
+const Hero = ({cardTotal, compleatTotal}) => {
   return (
     <div className="md:w-11/12 mx-auto font mt-10 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="">
@@ -24,7 +24,7 @@ const Hero = ({ cardTotal }) => {
           <img className="hidden md:block" src={vector1} alt="" />
           <div>
             <h2 className="text-xl font-bold">Resolved</h2>
-            <p className="text-5xl font-bold mt-4">0</p>
+            <p className="text-5xl font-bold mt-4">{compleatTotal}</p>
           </div>
           <img
             className="transform scale-x-[-1] hidden md:block"

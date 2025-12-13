@@ -1,8 +1,9 @@
 import React, { use } from "react";
 import TicketCard from "../TicketCard/TicketCard";
 import TaskStatus from "../TaskStatus/TaskStatus";
+import ResolveTask from "../ResolveTask/ResolveTask";
 
-const TicketsCard = ({ fetchTicket, handleTicket, card }) => {
+const TicketsCard = ({ fetchTicket, handleTicket, card, handleCompleat, compleat }) => {
   let ticket = use(fetchTicket);
 
   return (
@@ -33,7 +34,7 @@ const TicketsCard = ({ fetchTicket, handleTicket, card }) => {
 
             {card.length > 0 &&
               card.map((ticket) => (
-                <TaskStatus key={ticket.id} ticket={ticket}></TaskStatus>
+                <TaskStatus key={ticket.id} ticket={ticket} handleCompleat={handleCompleat}></TaskStatus>
               ))}
           </div>
         </div>
@@ -41,7 +42,14 @@ const TicketsCard = ({ fetchTicket, handleTicket, card }) => {
         <div className="w-full p-4 rounded-lg">
           <h2 className="text-2xl font-bold">Resolved Task</h2>
           <div>
-            <p className="text-[#627382] mt-4">No resolved tasks yet.</p>
+            {compleat.length === 0 && (
+              <p className="text-[#627382] mt-4">
+                Select a ticket to add to Task Status
+              </p>
+            )}
+            {compleat.length > 0 &&
+              compleat.map(ticket => <ResolveTask key={ticket.id} ticket = {ticket}></ResolveTask>)
+            }
           </div>
         </div>
       </div>
