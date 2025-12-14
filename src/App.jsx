@@ -10,9 +10,10 @@ let fetchTicket = fetch("/Tickets.json").then((res) => res.json());
 
 function App() {
   let [card, setCard] = useState([]);
-
+  
   let handleTicket = (ticket) => {
     // console.log(ticket);
+
     let isExist = card.find((item) => item.id == ticket.id);
 
     if (isExist) {
@@ -27,7 +28,6 @@ function App() {
   let [compleat, setCompleat] = useState([]);
 
   let handleCompleat = (ticket) => {
-    // console.log(Ticket)
     let Exist = compleat.find((item) => item.id == ticket.id);
 
     if (Exist) {
@@ -36,6 +36,9 @@ function App() {
 
     let newCompleat = [...compleat, ticket];
     setCompleat(newCompleat);
+
+    let remaining = card.filter((item) => item.id !== ticket.id);
+    setCard(remaining);
   };
   // console.log(compleat)
 
