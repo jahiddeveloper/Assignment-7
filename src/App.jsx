@@ -10,7 +10,7 @@ let fetchTicket = fetch("/Tickets.json").then((res) => res.json());
 
 function App() {
   let [card, setCard] = useState([]);
-  
+
   let handleTicket = (ticket) => {
     // console.log(ticket);
 
@@ -19,7 +19,7 @@ function App() {
     if (isExist) {
       return;
     }
-    toast.success("Hello wrold");
+    toast.success("In-Progress");
 
     let newCard = [...card, ticket];
     setCard(newCard);
@@ -33,6 +33,7 @@ function App() {
     if (Exist) {
       return;
     }
+    toast.success("Compleat");
 
     let newCompleat = [...compleat, ticket];
     setCompleat(newCompleat);
